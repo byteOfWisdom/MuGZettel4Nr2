@@ -57,13 +57,17 @@ for n in range(1, 12): # populate pressures. note that we have a starting pressu
 for n in range(12): # calculate the saturation pressures of water and, for temps below freezing of ice 
 	waterSats.append(satWater(temp[n]))
 	if temp[n] <= 0:
-	    iceTemps.append(temp[n])
-	    iceSats.append(satIce(temp[n]))
+		iceTemps.append(temp[n])
+		iceSats.append(satIce(temp[n]))
+		print(temp[n], "\t|",satWater(temp[n]), "\t| ", satIce(temp[n]))
+	else:
+		print(temp[n], "\t|",satWater(temp[n]))
+
+print()
 
 #"pretty" pringin the table in the task
 for n in range(12):
 	print(height[n]/1000.0,"\t|\t", celsius(ktemp[n]), "\t|", pressures[n]/100.0)
-
 
 # just plotting
 pyplot.plot(iceTemps, iceSats, label="ice [Millibar]")
